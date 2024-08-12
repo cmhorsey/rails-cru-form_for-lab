@@ -1,5 +1,4 @@
 class GenresController < ApplicationController
-
   def show
     @genre = Genre.find(params[:id])
   end
@@ -23,7 +22,8 @@ class GenresController < ApplicationController
     @genre.update(params.require(:genre).permit(:name))
     redirect_to genre_path(@genre)
   end
-private
+
+  private
 
   def genre_params(*args)
     params.require(:genre).permit(*args)
